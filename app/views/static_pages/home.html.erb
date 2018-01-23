@@ -5,23 +5,24 @@
     <nav id="sidebar-wrapper">
       <ul class="sidebar-nav">
         <li class="sidebar-brand">
-          <a class="js-scroll-trigger" href="#page-top">Start Bootstrap</a>
+          <a class="js-scroll-trigger" href="#page-top">Seek</a>
+
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#page-top">Home</a>
+           <%= link_to "Home", root_path, class: "js-scroll-trigger" %>
+
+
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#about">About</a>
+          <%= link_to "About", about_us_path, class: "js-scroll-trigger" %>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#services">Services</a>
+        <%= link_to "Contact Us", contact_us_path, class: "js-scroll-trigger" %>
         </li>
         <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#portfolio">Portfolio</a>
+          <%= link_to "Help", help_path, class: "js-scroll-trigger" %>
         </li>
-        <li class="sidebar-nav-item">
-          <a class="js-scroll-trigger" href="#contact">Contact</a>
-        </li>
+       
       </ul>
     </nav>
 
