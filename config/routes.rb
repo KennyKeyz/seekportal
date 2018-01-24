@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
 
 
+  resources :blogs do
+  	member do
+  		get :toggle_status
+  	end
+  end	
+
+
+
   get 'about-us', to: 'static_pages#about'
 
   get 'contact-us', to: 'static_pages#contact'

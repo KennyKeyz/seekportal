@@ -59,6 +59,8 @@ gem 'therubyracer', '~> 0.12.3'
 
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
+gem 'friendly_id', '~> 5.1.0'
+
 
 
 ruby "2.5.0"
