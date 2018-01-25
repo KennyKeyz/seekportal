@@ -61,6 +61,12 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
 gem 'friendly_id', '~> 5.1.0'
 
+gem 'devise', '~> 4.4', '>= 4.4.1'
+
+gem 'kaminari', '~> 1.1', '>= 1.1.1'
+
+
+
 
 
 ruby "2.5.0"

@@ -1,29 +1,143 @@
+    <!-- Call to Action -->
+    <section class="content-section bg-primary text-white">
+      <div class="container text-center">
+        
+        <% if current_user.nil? %>
+        <h2 class="mb-4">A new / returning member...</h2>
+  <%= link_to new_user_session_path, class: 'btn btn-xl btn-dark' do %>Login<% end %>
+  <%= link_to new_user_registration_path, class: 'btn btn-xl btn-light mr-4' do %>Register<% end %>
+<% else %>
+
+  <%= link_to destroy_user_session_path, class: 'btn btn-xl btn-dark' do %>Logout <% end %>
+<% end %>
+      </div>
+    </section>
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Blogs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <!-- Page Content -->
+    <div class="container">
 
-  <tbody>
+      <div class="row">
+
+        <!-- Blog Entries Column -->
+        <div class="col-md-8">
+
+          <h1 class="my-4">Page Heading
+            <small>Secondary Text</small>
+          </h1>
+           <%= paginate @blogs %>
+
+           <% @blogs.each do |blog| %>
+          <!-- Blog Post -->
+          <div class="card mb-4">
+            <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+            <div class="card-body">
+              <h2 class="card-title"> <%= blog.title %></h2>
+              <p class="card-text"> <%= blog.preview %></p>
+             
+             <%= link_to 'Read More', blog, class: "btn btn-primary" %>
+
+
+            </div>
+            <div class="card-footer text-muted">
+            Posted on  <%= blog.created_at %>
+              
+            </div>
+          </div>
+
+          <!-- Blog Post -->
+
+          <% end %>
+    
+       
+   <%= paginate @blogs %>
+
+        </div>
+
+        <!-- Sidebar Widgets Column -->
+        <div class="col-md-4">
+
+          <!-- Search Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Search</h5>
+            <div class="card-body">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-secondary" type="button">Go!</button>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Categories Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Categories</h5>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">Web Design</a>
+                    </li>
+                    <li>
+                      <a href="#">HTML</a>
+                    </li>
+                    <li>
+                      <a href="#">Freebies</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul class="list-unstyled mb-0">
+                    <li>
+                      <a href="#">JavaScript</a>
+                    </li>
+                    <li>
+                      <a href="#">CSS</a>
+                    </li>
+                    <li>
+                      <a href="#">Tutorials</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Side Widget -->
+          <div class="card my-4">
+            <h5 class="card-header">Side Widget</h5>
+            <div class="card-body">
+              You can put anything you want inside of these side widgets. They are easy to use, and feature the new Bootstrap 4 card containers!
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+
+
     <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.body %></td>
-        <td><%= link_to blog.status, toggle_status_blog_path(blog) %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    
+     <%= blog.title %>
+       <%= blog.body %>
+       <%= link_to blog.status, toggle_status_blog_path(blog) %>
+       <%= link_to 'Show', blog %>
+       <%= link_to 'Edit', edit_blog_path(blog) %>
+       <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+      
     <% end %>
-  </tbody>
-</table>
+
 
 <br>
 

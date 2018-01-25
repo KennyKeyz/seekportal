@@ -18,5 +18,7 @@ Rails.application.config.assets.precompile += %w( stylish-portfolio.js )
 
 Rails.application.config.assets.precompile += %w( jquery.easing.min.js )
 
+Rails.application.config.assets.precompile += %w( login.scss )
+
 
 

@@ -1,0 +1,53 @@
+
+
+
+<div class="wrapper">
+<div class="login">
+  
+   <div class="card-block">
+       <h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="form-group">
+  
+    <%= f.email_field :email, autofocus: true ,class: 'form-control'%>
+    <i class="fa fa-user"></i>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off",class: 'form-control' %>
+     <i class="fa fa-key"></i>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit "Log in", class: 'btn btn-primary'  %>
+  </div>
+
+   <% if devise_mapping.rememberable? -%>
+   
+   <div align="center">
+    <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+     
+    </div>
+   
+  <% end -%>
+
+
+<% end %>
+<div class="auth-links">
+
+ <%= render "devise/shared/links" %>
+  </div>
+
+
+    
+   </div>
+
+</div>
+</div>
+

@@ -1,0 +1,41 @@
+   <!-- Navigation -->
+    <a class="menu-toggle rounded" href="#">
+      <i class="fa fa-bars"></i>
+    </a>
+    <nav id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+          <a class="js-scroll-trigger" href="#page-top">Seek</a>
+
+        </li>
+        <li class="sidebar-nav-item">
+           <%= link_to "Home", root_path, class: "js-scroll-trigger" %>
+
+
+        </li>
+        <li class="sidebar-nav-item">
+          <%= link_to "About", about_us_path, class: "js-scroll-trigger" %>
+        </li>
+        <li class="sidebar-nav-item">
+        <%= link_to "Contact Us", contact_us_path, class: "js-scroll-trigger" %>
+        </li>
+        <li class="sidebar-nav-item">
+          <%= link_to "Help", help_path, class: "js-scroll-trigger" %>
+        </li>
+        <li class="sidebar-nav-item">
+          <% if current_user.nil? %>
+  <%= link_to new_user_session_path, class: '' do %>Login<% end %>
+  <%= link_to new_user_registration_path, class: '' do %>Register<% end %>
+<% else %>
+
+  <%= link_to destroy_user_session_path, class: '' do %>Logout <% end %>
+<% end %>
+
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header -->
+
+
+

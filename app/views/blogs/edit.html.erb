@@ -1,3 +1,19 @@
+    <!-- Call to Action -->
+    <section class="content-section bg-primary text-white">
+      <div class="container text-center">
+        
+        <% if current_user.nil? %>
+        <h2 class="mb-4">A new / returning member...</h2>
+  <%= link_to new_user_session_path, class: 'btn btn-xl btn-dark' do %>Login<% end %>
+  <%= link_to new_user_registration_path, class: 'btn btn-xl btn-light mr-4' do %>Register<% end %>
+<% else %>
+
+  <%= link_to destroy_user_session_path, class: 'btn btn-xl btn-dark' do %>Logout <% end %>
+<% end %>
+      </div>
+    </section>
+
+
 <h1>Editing Blog</h1>
 
 <%= render 'form', blog: @blog %>
