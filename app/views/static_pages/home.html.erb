@@ -9,6 +9,7 @@
   <p class="alert"><%= alert %></p>
         </h4>
 
+
         <% if current_user %>
        
       
@@ -21,8 +22,11 @@
       
 
        <% end %>
-      </div>
 
+
+
+      </div>
+           
       <div class="overlay"></div>
     </header>
 
@@ -34,7 +38,8 @@
             <h2>We're empowering a new generation of leaders</h2>
             <p class="lead mb-5">We started out on whatsapp, now we've expanded to 
               <a href="https://www.facebook.com/seekinternational/">Facebook</a>!  and beyond</p>
-            <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">What We Offer</a>
+            <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">What We Offer</a> |
+              <a class="btn btn-dark btn-xl js-scroll-trigger" href="#monthbook">Download  <%= Date::MONTHNAMES[Date.today.month] %> book </a>
           </div>
         </div>
       </div>
@@ -91,12 +96,21 @@
     </section>
 
     <!-- Callout -->
-    <section class="callout">
+    <section class="callout"  id="monthbook">
       <div class="container text-center">
         <h2 class="mx-auto mb-5">Our book for this month,
           <em>Sales </em>
           101 </h2>
-        <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Download Now!</a>
+
+
+          <%  if logged_in?(:user) %>
+ <%= link_to "https://www.dropbox.com/?landing=dbv2",:target => "_blank", class: 'btn btn-primary btn-xl'   do %>Download Now!  <% end %>
+ <%else %>
+ <h3 class="mx-auto mb-5"><%= link_to  new_user_registration_path do %>Register to download <% end %>
+        </h3
+ <% end %>
+
+
       </div>
     </section>
 

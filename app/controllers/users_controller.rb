@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user_item, only: [:edit, :update, :show, :destroy]
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, seek_admin: :all
   
   #access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
 
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    
+     
   end
 
   def show
